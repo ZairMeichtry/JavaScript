@@ -90,4 +90,4 @@ while (true) {
 let precioDelSeguro = calcularPrecioDelSeguro(edad, modeloDeAuto, cobertura);
 
 // Mostrar el precio del seguro al usuario
-console.log("El precio del seguro para un/a conductor/a de " + edad + " años con un modelo tipo " + modeloDeAuto + " y una cobertura " + cobertura + " es de $" + precioDelSeguro);
+alert("El precio del seguro para un/a conductor/a de " + edad + " años con un modelo tipo " + modeloDeAuto + " y una cobertura " + cobertura + " es de $" + precioDelSeguro);
