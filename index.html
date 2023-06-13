@@ -2,20 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Anti-choq</title>
+    <title>Las Rik°s</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <main>    
-        <div>
-            <h1>APP Pedidos </h1>
-            <div>
-                <h3>La mejor app para tomar pedidos del pais</h3>
-            </div>
+<div class="wrapper">
+    <aside>
+        <header>
+            <h1 class="logo">Las Rik°s</h1>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li>
+                    <button id="todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i>Elegir de nuestra lista</button>
+                </li>
+                <li>
+                    <a href="./pages/Armar.html">
+                        <button class="boton-menu boton-categoria "><i class="bi bi-hand-index-thumb"></i>Armar Ensalada</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="./pages/carrito.html" class="boton-menu boton-carrito ">
+                        <i class="bi bi-cart-fill"></i>carrito <span id="numerito" class="numerito">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <footer>
+            <p class="texto-footer">© Las Rikas Ensaladas 2023</p>
+        </footer>
+    </aside>
+    <main>
+        <h2 class="titulo-principal">Lista definida</h2>
+        <div id="contenedor-productos" class="contenedor-productos">
+
         </div>
     </main>
-        <script src="./lasRikas.js"></script>
+</div>
+<script src="./JS/main.js"></script>
 </body>
 </html>
