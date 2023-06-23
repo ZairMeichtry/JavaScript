@@ -1,124 +1,11 @@
-const productos = [
-    {
-        id: "1",
-        titulo: "Ensalada N°1",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, repollo, lechuga, tomate, huevo, queso",
-    },
-    {
-        id: "2",
-        titulo: "Ensalada N°2",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, repollo, huevo, queso",
-    },
-    {
-        id: "3",
-        titulo: "Ensalada N°3",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, lechuga, tomate, rucula, huevo, queso",
-    },
-    {
-        id: "4",
-        titulo: "Ensalada N°4",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle:"zanahoria, remolacha, lechuga, tomate, rucula, pollo",
-    },
-    {
-        id: "5",
-        titulo: "Ensalada N°5",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, repollo, lechuga, tomate, pollo",
-    },
-    {
-        id: "6",
-        titulo: "Ensalada N°6",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle:"lechuga, tomate, pollo, jamon, queso, crocantitos",
-    },
-    {
-        id: "7",
-        titulo: "Ensalada N°7",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "lechuga, tomate, jamon, queso, huevo",
-    },
-    {
-        id: "8",
-        titulo: "Ensalada N°8",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, tomate, lechuga o rucula, arroz yamani, huevo",
-    },
-    {
-        id: "9",
-        titulo: "Ensalada N°9",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, tomate, lechuga o rucula, lentejas , huevo",
-    },
-    {
-        id: "10",
-        titulo: "Ensalada N°10",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, remolacha, lechuga o rucula, lentejas, huevo",
-    },
-    {
-        id: "11",
-        titulo: "Ensalada N°11",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, jamon, queso, tomate, choclo",
-    },
-    {
-        id: "12",
-        titulo: "Ensalada N°12",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle:"lechuga, zanahoria, jamon, queso, tomate",
-    },
-    {
-        id: "13",
-        titulo: "Ensalada N°13",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "lechuga, zanahoria, remolacha, rucula, tomate",
-    },
-    {
-        id: "14",
-        titulo: "Ensalada N°14",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle:"lechuga, repollo colorado, repollo blanco, tomate, rucula",
-    },
-    {
-        id: "15",
-        titulo: "Ensalada N°15",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, jamon, queso, tomate, choclo",
-    },
-    {
-        id: "16",
-        titulo: "Ensalada N°16",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, lentejas, repollo, tomate, rucula",
-    },
-    {
-        id: "17",
-        titulo: "Ensalada N°17",
-        imagen:"../assets/img/Ensalada.jpg",
-        precio:"450",
-        detalle: "zanahoria, arroz yamani, chaucha, huevo, tomate",
-    },
-];
+let productos = [];
+
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -126,7 +13,7 @@ let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito")
 
 
-function cargarProdutos() {
+function cargarProductos() {
     contenedorProductos.innerHTML = "";
     productos.forEach(producto=>{
         const div= document.createElement("div");
@@ -146,7 +33,7 @@ function cargarProdutos() {
     })
     actualizarBotonesAgregar()
 }
-cargarProdutos();
+
 
 botonesCategorias.forEach(boton =>{
     boton.addEventListener("click", (e) =>{
@@ -178,6 +65,26 @@ if(productosEnCarritoLS){
 }
 
 function agregarAlCarrito(e) {
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #552121, #9c5252)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
+      
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
     if(productosEnCarrito.some(producto => producto.id ===idBoton)){

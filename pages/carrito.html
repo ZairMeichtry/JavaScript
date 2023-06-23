@@ -10,7 +10,16 @@
 </head>
 <body>
     <div class="wrapper">
+        <header class="header-mobile" >
+        <h1 class="logo">Las Rik°s</h1>
+        <button class="open-menu" id="open-menu">
+            <i class="bi bi-list"></i>
+        </button>
+    </header>
         <aside>
+            <button class="close-menu" id="close-menu">
+            <i class="bi bi-x-lg"></i>
+        </button>
             <header>
                 <h1 class="logo">Las Rik°s</h1>
             </header>
@@ -34,7 +43,7 @@
         <main>
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
-                <p id="carrito-vacio" class="carrito-vacio">tu carrito esta vacio. <i class="bi bi-emoji-frown"></i></p>
+                <h3 id="carrito-vacio" class="carrito-vacio">tu carrito esta vacio. <button><a href="../index.html"><i class="bi bi-box-arrow-left" width="20px" heigth="20px"></i></a></button></h3>
 
                 <div id="carrito-productos" class="carrito-productos disabled">
 
@@ -67,6 +76,9 @@
 
         </main>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/menu.js"></script>
     <script src="../JS/carrito.js"></script>
 </body>
 </html>
