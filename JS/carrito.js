@@ -33,7 +33,6 @@ function cargarProductosCarrito(){
             </div>
             <div class="carrito-producto-cantidad">
                 <small>Cantidad</small>
-                <input type="number" value="1" class="cart-quantity">
                 <p>${producto.cantidad}</p>
             </div>
             <div class="carrito-producto-precio">
